@@ -4,16 +4,24 @@
 
     // GLOBAL Variables
     const userUid = CONFIG.uid;
-    const baseURL = CONFIG.baseUrl;
+    const baseURL = '';
 
     // Start Program
     getArtistsPosts();
+    CONFIG.copy._updateHomepageCopy();
+    CONFIG.copy._headerFooterComponents();
 
     // All Functions
     function getArtistsPosts() {
-        $.get(baseURL + '/getArtistsPosts?uid=' + userUid,function(data, status) {
-            createPosts(data);
-        });
+        if(CONFIG.baseUrl){
+            baseURL = CONFIG.baseUrl;
+
+            $.get(baseURL + '/getArtistsPosts?uid=' + userUid,function(data, status) {
+                createPosts(data);
+            });
+        } else {
+            console.log("No baseURL defined");
+        }
     }
 
     function createPosts(posts) {
