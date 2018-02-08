@@ -3,8 +3,8 @@
     'use strict';
 
     // FILE Variables
-    const artistUid = CONFIG.uid;
-    const baseUrl = '';
+    let artistUid = CONFIG.uid;
+    let baseUrl = '';
 
     CONFIG.copy._headerFooterComponents();
 
@@ -46,7 +46,7 @@
     // All Functions
     function getAndUpdatePostDetails() {
         if(CONFIG.baseUrl) {
-            const baseUrl = CONFIG.baseUrl;
+            baseUrl = CONFIG.baseUrl;
             $.get(baseUrl + '/getArtistsPosts?uid=' + artistUid,function(data, status) {
                 let id = getUrlParameter('id');
                 console.log(data[id])

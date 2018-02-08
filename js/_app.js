@@ -3,8 +3,8 @@
     'use strict';
 
     // GLOBAL Variables
-    const userUid = CONFIG.uid;
-    const baseUrl = '';
+    let userUid = CONFIG.uid;
+    let baseUrl = '';
 
     // Start Program
     getArtistsPosts();
