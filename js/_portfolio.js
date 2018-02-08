@@ -4,7 +4,7 @@
 
     // FILE Variables
     const artistUid = CONFIG.uid;
-    const baseURL = '';
+    const baseUrl = '';
 
     CONFIG.copy._headerFooterComponents();
 
@@ -31,7 +31,7 @@
 
             console.log(purchaseForm);
 
-            $.post(baseURL + '/submitPurchaseForm', purchaseForm,function(data, status) {
+            $.post(baseUrl + '/submitPurchaseForm', purchaseForm,function(data, status) {
                 console.log(status)
                 if(status === 'success') {
                     cleanForm()
@@ -45,9 +45,9 @@
 
     // All Functions
     function getAndUpdatePostDetails() {
-        if(CONFIG.baseURL) {
-            const baseURL = CONFIG.baseUrl;
-            $.get(baseURL + '/getArtistsPosts?uid=' + artistUid,function(data, status) {
+        if(CONFIG.baseUrl) {
+            const baseUrl = CONFIG.baseUrl;
+            $.get(baseUrl + '/getArtistsPosts?uid=' + artistUid,function(data, status) {
                 let id = getUrlParameter('id');
                 console.log(data[id])
 
@@ -62,7 +62,7 @@
                 $('#piecePrice').text('$'+data[id].price + '.00');
             });
         } else {
-            console.log("No baseURL defined");
+            console.log("No baseUrl defined");
         }
     }
 

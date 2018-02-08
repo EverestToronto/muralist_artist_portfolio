@@ -4,7 +4,7 @@
 
     // GLOBAL Variables
     const userUid = CONFIG.uid;
-    const baseURL = '';
+    const baseUrl = '';
 
     // Start Program
     getArtistsPosts();
@@ -14,13 +14,13 @@
     // All Functions
     function getArtistsPosts() {
         if(CONFIG.baseUrl){
-            baseURL = CONFIG.baseUrl;
+            baseUrl = CONFIG.baseUrl;
 
-            $.get(baseURL + '/getArtistsPosts?uid=' + userUid,function(data, status) {
+            $.get(baseUrl + '/getArtistsPosts?uid=' + userUid,function(data, status) {
                 createPosts(data);
             });
         } else {
-            console.log("No baseURL defined");
+            console.log("No baseUrl defined");
         }
     }
 
